@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title %} Grabr {% endblock %}
+
+{%block body %}
+<div class="container">
+    <hr>
+    <form action="/" method="POST" >
+        <input type="text" name="ida" id="ida" value="CNF">
+        <input type="text" name="volta" id="volta" value="CGH">
+        <input type="text" name="data" id="data" value="DD/MM/AAAA">
+        <input type="submit" value="Bora">
+    </form>
+    <hr>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Companhia</th>
+                <th>De</th>
+                <th>Para</th>
+                <th>Data</th>
+                <th>Horário Saída</th>
+                <th>Horário Chegada</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for voo in voos %}
+                    <tr>
+                        <td>{{voo[0]}}</td>
+                        <td>{{voo[1]}}</td>
+                        <td>{{voo[2]}}</td>
+                        <td>{{voo[3]}}</td>
+                        <td>{{voo[4]}}</td>
+                        <td>{{voo[5]}}</td>
+                        <td>{{voo[6]}}</td>
+                     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
